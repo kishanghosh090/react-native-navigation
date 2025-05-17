@@ -13,21 +13,19 @@ import {SafeAreaView} from 'react-native-safe-area-context';
 type HomeProps = NativeStackScreenProps<RootStackParamList, 'Home'>;
 const Home = ({navigation}: HomeProps) => {
   return (
-    <SafeAreaView>
-      <View style={styles.container}>
-        <FlatList
-          data={PRODUCTS_LIST}
-          keyExtractor={item => item.id}
-          ItemSeparatorComponent={Seprator}
-          renderItem={({item}) => (
-            <Pressable
-              onPress={() => navigation.navigate('Details', {product: item})}>
-              <ProductItem product={item} />
-            </Pressable>
-          )}
-        />
-      </View>
-    </SafeAreaView>
+    <View style={styles.container}>
+      <FlatList
+        data={PRODUCTS_LIST}
+        keyExtractor={item => item.id}
+        ItemSeparatorComponent={Seprator}
+        renderItem={({item}) => (
+          <Pressable
+            onPress={() => navigation.navigate('Details', {product: item})}>
+            <ProductItem product={item} />
+          </Pressable>
+        )}
+      />
+    </View>
   );
 };
 
